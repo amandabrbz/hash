@@ -31,6 +31,7 @@
 ## Sobre o Desafio
 
 Desenvolver uma calculadora de antecipação para que os clientes consigam saber quais os valores irão receber caso optem por atencipar o recebimento.
+
 ## Requisitos
 
 - [ ] Use componentização.
@@ -130,13 +131,15 @@ Como não veio a versão mobile e o layout segue um grid de 2 colunas, decidi fa
 
 ## Conclusões
 
+Uffa! Que desafio! [...]
+
 ### Aprendizados
 
 [...]
 
 ### Dificuldades
 
-[...]
+Por não conhecer ainda todo o universo de React, Hooks, Redux e etc, tive um pouco de dificuldade de passar os valores entre os dois componentes que tinha criado. Fiz uma pesquisa intensiva e achei que há alguns métodos específicos para isso como ContextAPI, mas achei um ensinamento de usar state também, mesmo sendo como improv, funcionou.
 
 ### Pontos de melhorias
 
@@ -158,3 +161,5 @@ _Identificados by me._
 Amanda Barboza @ [LinkedIn](https://linkedin/in/amandabrbz)
 
 ## Referências
+
+[Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | 
