@@ -6,10 +6,11 @@ html {
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Source Sans Pro', Arial, sans-serif !important;
   height: 100vh;
   background: $bg-blue;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }

@@ -1,0 +1,110 @@
+@import "../../styles/default.scss";
+
+.box {
+  width: 100%;
+  max-width: 608px;
+  height: auto;
+  border: 1px solid $border;
+  border-radius: $radius;
+  display: grid;
+  background: $white;
+  grid-template-columns: 1fr;
+  
+  @include mediaMin($breakpoint-small) {
+    box-shadow: 6px 9px 22px -2px rgba(0, 0, 0, 0.1);
+    grid-template-columns: 2fr 1.1fr;
+    max-height: 780px;
+  }
+
+  &__form {
+    padding: 40px 70px 40px 50px;
+
+    &--title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: $primary;
+    }
+
+    &--form {
+      fieldset {
+        margin-top: 22px;
+      }
+
+      label,
+      input {
+        display: block;
+      }
+
+      label {
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        color: $primary;
+        margin-bottom: 6px;
+      }
+
+      input {
+        width: 100%;
+        max-width: 251px;
+        height: 37px;
+        border-radius: $radius;
+        border: 1px solid $border;
+        padding: 0 14px;
+        font-size: .875rem;
+        color: $black;
+
+        &:active, &:focus {
+          outline: $active;
+          border: 1px solid $active;
+        }
+      }
+
+      small {
+        font-size: .687rem;
+        font-weight: 700;
+        color: $grey;
+      }
+    }
+  }
+
+  &__result {
+    height: 100%;
+    padding: 35px;
+    background: $bg-grey;
+    
+    @include mediaMin($breakpoint-small) {
+      padding: 0 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &--title {
+      font-size: 1rem;
+      line-height: 2;
+      font-weight: 700;
+      font-style: italic;
+      text-transform: uppercase;
+      color: $secondary;
+      border-bottom: 2px solid $opsecondary;
+    }
+
+    &--text {
+      margin: 14px 0;
+      color: $blue;
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 300;
+      @include mediaMin($breakpoint-small) {
+      &:first-of-type {
+        margin: 40px 0 10px;
+      }
+    }
+
+      strong {
+        font-weight: 700;
+      }
+    }
+  }
+}
