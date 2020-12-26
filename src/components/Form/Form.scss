@@ -1,0 +1,54 @@
+@import "../../styles/default.scss";
+
+.box__form {
+  padding: 40px 70px 40px 50px;
+
+  &--title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: $primary;
+  }
+
+  &--form {
+    fieldset {
+      margin-top: 22px;
+    }
+
+    label,
+    input {
+      display: block;
+    }
+
+    label {
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: $primary;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      max-width: 251px;
+      height: 37px;
+      border-radius: $radius;
+      border: 1px solid $border;
+      padding: 0 14px;
+      font-size: 0.875rem;
+      color: $black;
+
+      &:active,
+      &:focus {
+        outline: $active;
+        border: 1px solid $active;
+      }
+    }
+
+    small {
+      font-size: 0.687rem;
+      font-weight: 700;
+      color: $grey;
+    }
+  }
+}
