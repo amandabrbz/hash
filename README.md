@@ -125,7 +125,7 @@ _Identificados by me._
 
 <center>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c1f47fa5-4c3e-413f-a09c-2f4b741f7984/deploy-status)](https://app.netlify.com/sites/hash-calculator-by-amanda/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c1f47fa5-4c3e-413f-a09c-2f4b741f7984/deploy-status)](https://app.netlify.com/sites/hash-calculator-by-amanda/deploys)<br/>
 [Github - Source Code](https://github.com/amandabrbz/hash) | [Netlify - Render](https://hash-calculator-by-amanda.netlify.app)
 
 </center>
