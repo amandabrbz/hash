@@ -101,11 +101,9 @@ Layout foi dado pela empresa [clique aqui para ver](https://www.figma.com/file/i
 
 E como requisito deve ser **pixel-by-pixel**.
 
-Obs: como não veio versão mobile, decidi aplicar um grid responsivo.
-
 ### Ideias
 
-[...]
+Como não veio a versão mobile e o layout segue um grid de 2 colunas, decidi fazer um responsivo.
 
 ## Conclusões
 
@@ -127,7 +125,8 @@ _Identificados by me._
 
 <center>
 
-[Github - Source Code]() | [Netlify - Render]()
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c1f47fa5-4c3e-413f-a09c-2f4b741f7984/deploy-status)](https://app.netlify.com/sites/hash-calculator-by-amanda/deploys)
+[Github - Source Code](https://github.com/amandabrbz/hash) | [Netlify - Render](https://hash-calculator-by-amanda.netlify.app)
 
 </center>
 
