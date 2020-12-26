@@ -31,17 +31,27 @@
 ## Sobre o Desafio
 
 Desenvolver uma calculadora de antecipação para que os clientes consigam saber quais os valores irão receber caso optem por atencipar o recebimento.
+## Requisitos
 
-### Requisitos
+- [ ] Use componentização.
+- [ ] Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos.
+- [ ] Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
 
-- [ ] Componentização,
-- [ ] Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos,
-- [ ] Testes unitários e/ou ponta-a-ponta;
+Os possíveis cenários devem ser cobertos e terem soluções implementadas. Não foi desenvolvido layout para isso, pois queremos observar como você lidará com eles:
+
+- [ ] Demora de respostas da API
+- [ ] Timeout da API
+- [ ] Conexão lenta
+- [ ] Usuário estar offline
 
 ### Regras
 
-- Usar React,
-- Ferramentas modernas de desenvolvimento como TypeScript, Babel, eslint, webpack, uso de polyfills e bibliotecas para testes
+1.  **Não é permitido** utilizar frameworks e/ou bibliotecas de UI que não seja o React (como Vue.js ou Angular).
+2.  **São permitidas** ferramentas modernas de desenvolvimento como TypeScript, Babel, eslint, webpack, assim como o uso de polyfills (e outras ferramentas para melhorar o suporte a browsers, como Modernizr) e/ou bibliotecas para testes.
+3.  **São permitidos** pré-processadores de CSS e/ou ferramentas CSS-in-JS.
+4.  Não é uma regra, mas evite usar lodash, underscore, ramda e similares.
+
+[Para saber mais sobre o teste, clique aqui :raising_hand:](https://github.com/hashlab/hiring/blob/master/challenges/pt-br/front-challenge.md)
 
 
 ## Getting Started
@@ -89,11 +99,24 @@ http://localhost:3000
 
 ## Versionamento
 
-[...]
+Trabalhei desenvolvendo cada fase do projeto atraves de *branches* apenas, pois não achei necessário trabalhar com PRs e nem SemVer, mas entendo todo o conceito por trás dos métodos.
+
+Caso fosse preciso voltar em uma branch, eu rodava o comando de `git pull origin main` para atualizar a branch conforme a main.
+
+Para organizar o desenvolvimento utilizei algumas do features do GitHub, como as  *issues* para ver quais problemas/fases precisava desenvolver. Utilizei o *kanban board* presente na aba Projetos, que é automatizado com as *issues*. Com esse *board* consigo mensurar o projeto como um todo.
 
 ### Processo de Deploy
 
-[...]
+Já tenho alguns projetos pessoais em plataformas como a Netlify e a Heroku, mas tendo pela preferência da usabilidade e configuração da Netlify.
+
+Para deixar o processo mais automatizado, o deploy ocorre toda vez que há um *push* na **branch main** e a Netlify roda o `npm build` e faz a publicação, mas é possível retirar essa automatização e fazer manualmente via CLI próprio da Netlify ou diretamente na plataforma.
+
+```bash
+npm run build
+netlify deploy --prod
+```
+
+Para link de produção ou status do deploy, seguir para a seção [Deploy](#Deploy)
 
 ## Layout
 
