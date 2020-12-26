@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Form.css";
 
-const Form = (props) => {
+const Form = ( { setData }) => {
   const [forms, setForms] = useState({
     amount: "",
     installments: "",
@@ -9,13 +9,15 @@ const Form = (props) => {
   });
 
   const [smallInfo, setSmallInfo] = useState(false);
+  const [enter, setEnter] = useState(false);
 
   function handleChange({ target }) {
     const { name, value } = target;
     setForms({ ...forms, [name]: value });
   }
 
-  function handleSubmit() {
+  function handleSubmit(event) {
+    event.preventDefault();
     fetch("https://hash-front-test.herokuapp.com/", {
       method: "POST",
       headers: {
@@ -28,22 +30,18 @@ const Form = (props) => {
         return Promise.reject(response);
       })
       .then(function (data) {
-        props.setData({ ...data });
+        setData({ ...data });
       })
       .catch(function (error) {
         alert("Não foi possível fazer o cálculo, tente novamente.");
       });
   }
 
-  useEffect(() => {
-    handleSubmit();
-  }, [forms.mdr]);
-
   return (
     <>
       <div className="box__form">
         <h1 className="box__form--title">Simule sua Antecipação</h1>
-        <form className="box__form--form" autoComplete="off">
+        <form className="box__form--form" autoComplete="off" onSubmit={handleSubmit}>
           <fieldset>
             <label htmlFor="amount">Informe o valor da venda*</label>
             <input
@@ -76,9 +74,12 @@ const Form = (props) => {
               name="mdr"
               value={forms.mdr}
               onChange={handleChange}
+              onFocus={() => setEnter(true)}
               required
             />
+            {enter && <small>Aperte Enter</small>}
           </fieldset>
+          <button type="submit" style={{"display": "none"}} >Enviar</button>
         </form>
       </div>
     </>
