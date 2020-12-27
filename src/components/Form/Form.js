@@ -49,6 +49,7 @@ const Form = ( { setData }) => {
               name="amount"
               value={forms.amount}
               onChange={handleChange}
+              placeholder="R$ 0,00"
               required
             />
           </fieldset>
@@ -60,10 +61,11 @@ const Form = ( { setData }) => {
               max="12"
               min="0"
               step="1"
+              placeholder="0x"
               value={forms.installments}
               onChange={handleChange}
-              required
               onFocus={() => setSmallInfo(true)}
+              required
             />
             {smallInfo && <small>Máximo de 12 parcelas</small>}
           </fieldset>
@@ -72,6 +74,7 @@ const Form = ( { setData }) => {
             <input
               type="text"
               name="mdr"
+              placeholder="0%"
               value={forms.mdr}
               onChange={handleChange}
               onFocus={() => setEnter(true)}
