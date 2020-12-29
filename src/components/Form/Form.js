@@ -32,25 +32,25 @@ const Form = ({ setData }) => {
   }
 
   useEffect(() => {
-    fetch("https://hash-front-test.herokuapp.com/", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(forms),
-    })
-      .then(function (response) {
-        if (response.ok) return response.json();
-        return Promise.reject(response);
+    if (forms.amount !== "" && forms.installments !== "" && forms.mdr !== "") {
+      fetch("https://hash-front-test.herokuapp.com/", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(forms),
       })
-      .then(function (data) {
-        setData({ ...data });
-
-        console.log(data);
-      })
-      .catch(function (error) {
-        alert("Não foi possível fazer o cálculo, tente novamente.");
-      });
+        .then(function (response) {
+          if (response.ok) return response.json();
+          return Promise.reject(response);
+        })
+        .then(function (data) {
+          setData({ ...data });
+        })
+        .catch(function (error) {
+          alert("Não foi possível fazer o cálculo, tente novamente.");
+        });
+    }
     // eslint-disable-next-line
   }, [forms]);
 
