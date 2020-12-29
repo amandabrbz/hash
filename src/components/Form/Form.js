@@ -1,5 +1,20 @@
 import React, { useState, useEffect } from "react";
+import IntlCurrencyInput from "react-intl-currency-input";
 import "./Form.css";
+
+const currencyConfig = {
+  locale: "pt-BR",
+  formats: {
+    number: {
+      BRL: {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      },
+    },
+  },
+};
 
 const Form = ({ setData }) => {
   const [smallInfo, setSmallInfo] = useState(false);
@@ -9,8 +24,10 @@ const Form = ({ setData }) => {
     mdr: "",
   });
 
-  function handleChange({ target }) {
-    const { name, value } = target;
+  function handleChange({ target }, maskValue) {
+    let { name, value } = target;
+    
+    if (name === "amount") value = maskValue;
     setForms({ ...forms, [name]: value });
   }
 
@@ -29,7 +46,7 @@ const Form = ({ setData }) => {
       .then(function (data) {
         setData({ ...data });
 
-        console.log(data)
+        console.log(data);
       })
       .catch(function (error) {
         alert("Não foi possível fazer o cálculo, tente novamente.");
@@ -44,8 +61,9 @@ const Form = ({ setData }) => {
         <form className="box__form--form" autoComplete="off">
           <fieldset>
             <label htmlFor="amount">Informe o valor da venda*</label>
-            <input
-              type="text"
+            <IntlCurrencyInput
+              currency="BRL"
+              config={currencyConfig}
               name="amount"
               value={forms.amount}
               onChange={handleChange}
