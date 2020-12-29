@@ -26,7 +26,7 @@ const Form = ({ setData }) => {
 
   function handleChange({ target }, maskValue) {
     let { name, value } = target;
-    
+
     if (name === "amount") value = maskValue;
     setForms({ ...forms, [name]: value });
   }
@@ -90,8 +90,11 @@ const Form = ({ setData }) => {
           <fieldset>
             <label htmlFor="mdr">Informe o percentual de MDR*</label>
             <input
-              type="text"
+              type="number"
               name="mdr"
+              className="mdr"
+              min="0"
+              step="0.1"
               placeholder="0%"
               value={forms.mdr}
               onChange={handleChange}

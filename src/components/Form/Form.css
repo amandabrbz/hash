@@ -1,1 +1,46 @@
-.box__form{padding:40px 70px 40px 50px}.box__form--title{font-size:1.6rem;font-weight:700;line-height:1.4;color:#656565}.box__form--form fieldset{margin-top:22px}.box__form--form label,.box__form--form input{display:block}.box__form--form label{font-weight:400;font-size:0.875rem;line-height:1.5;color:#656565;margin-bottom:6px}.box__form--form input{width:100%;max-width:251px;height:37px;border-radius:4px;border:1px solid #DDE6E9;padding:0 14px;font-size:0.875rem;color:#000}.box__form--form input:active,.box__form--form input:focus{outline:#66AFE9;border:1px solid #66AFE9}.box__form--form small{font-size:0.687rem;font-weight:700;color:#CECECE}
+.box__form {
+  padding: 40px 70px 40px 50px; }
+
+.box__form--title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #656565; }
+
+.box__form--form fieldset {
+  margin-top: 22px; }
+
+.box__form--form label,
+.box__form--form input {
+  display: block; }
+
+.box__form--form label {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #656565;
+  margin-bottom: 6px; }
+
+.box__form--form input {
+  width: 100%;
+  max-width: 251px;
+  height: 37px;
+  border-radius: 4px;
+  border: 1px solid #DDE6E9;
+  padding: 0 14px;
+  font-size: 0.875rem;
+  color: #000; }
+
+.box__form--form input:active, .box__form--form input:focus {
+  outline: #66AFE9;
+  border: 1px solid #66AFE9; }
+
+.box__form--form input.mdr::-webkit-inner-spin-button, .box__form--form input.mdr::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+  -moz-appearance: textfield !important; }
+
+.box__form--form small {
+  font-size: 0.687rem;
+  font-weight: 700;
+  color: #CECECE; }
