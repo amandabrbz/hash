@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from "react";
 import IntlCurrencyInput from "react-intl-currency-input";
 import { POST } from "../../API/api";
+import { currencyConfig } from '../../config/CurrencyConfig';
 import "./Form.css";
-
-const currencyConfig = {
-  locale: "pt-BR",
-  formats: {
-    number: {
-      BRL: {
-        style: "currency",
-        currency: "BRL",
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      },
-    },
-  },
-};
 
 const Form = ({ setData }) => {
   const [showInfo, setShowInfo] = useState(false);
