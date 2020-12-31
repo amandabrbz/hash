@@ -42,10 +42,15 @@ const Form = ({ setData }) => {
   async function handlePOST(forms) {
     const { url, options } = POST(forms);
 
-    const response = await fetch(url, options);
-    const json = await response.json();
+    try {
+      const response = await fetch(url, options);
+      const json = await response.json();
 
-    setData({ ...json });
+      setData({ ...json });
+    } catch (error) {
+      alert('Não foi possível realizar o cálculo tente novamente.');
+      console.error(error)
+    }
   }
 
   return (
