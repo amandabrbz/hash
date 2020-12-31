@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import IntlCurrencyInput from "react-intl-currency-input";
+import { POST } from "../../API/api";
 import "./Form.css";
 
 const currencyConfig = {
@@ -17,12 +18,19 @@ const currencyConfig = {
 };
 
 const Form = ({ setData }) => {
-  const [smallInfo, setSmallInfo] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [forms, setForms] = useState({
     amount: "",
     installments: "",
     mdr: "",
   });
+
+  useEffect(() => {
+    if (forms.amount !== "" && forms.installments !== "" && forms.mdr !== "") {
+      handlePOST(forms);
+    }
+    // eslint-disable-next-line
+  }, [forms]);
 
   function handleChange({ target }, maskValue) {
     let { name, value } = target;
@@ -31,28 +39,14 @@ const Form = ({ setData }) => {
     setForms({ ...forms, [name]: value });
   }
 
-  useEffect(() => {
-    if (forms.amount !== "" && forms.installments !== "" && forms.mdr !== "") {
-      fetch("https://hash-front-test.herokuapp.com/", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-        body: JSON.stringify(forms),
-      })
-        .then(function (response) {
-          if (response.ok) return response.json();
-          return Promise.reject(response);
-        })
-        .then(function (data) {
-          setData({ ...data });
-        })
-        .catch(function (error) {
-          alert("Não foi possível fazer o cálculo, tente novamente.");
-        });
-    }
-    // eslint-disable-next-line
-  }, [forms]);
+  async function handlePOST(forms) {
+    const { url, options } = POST(forms);
+
+    const response = await fetch(url, options);
+    const json = await response.json();
+
+    setData({ ...json });
+  }
 
   return (
     <>
@@ -82,10 +76,10 @@ const Form = ({ setData }) => {
               placeholder="0x"
               value={forms.installments}
               onChange={handleChange}
-              onFocus={() => setSmallInfo(true)}
+              onFocus={() => setShowInfo(true)}
               required
             />
-            {smallInfo && <small>Máximo de 12 parcelas</small>}
+            {showInfo && <small>Máximo de 12 parcelas</small>}
           </fieldset>
           <fieldset>
             <label htmlFor="mdr">Informe o percentual de MDR*</label>
