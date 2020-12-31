@@ -1,3 +1,4 @@
+/* autoprefixer grid: autoplace */
 @import "../../styles/default.scss";
 
 .box {
@@ -11,7 +12,7 @@
   grid-template-columns: 1fr;
 
   @include mediaMin($breakpoint-small) {
-    box-shadow: 6px 9px 22px -2px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 9px 22px -2px $sombra;
     grid-template-columns: 2fr 1.145fr;
     max-height: 780px;
   }
