@@ -144,13 +144,15 @@ Acredito que aprendi bastante com o teste, nunca tinha mexido com libs externas,
 1. Por não conhecer ainda todo o universo de React, Hooks, Redux e etc, tive um pouco de dificuldade de passar os valores entre os dois componentes que tinha criado. Fiz uma pesquisa intensiva e achei que há alguns métodos específicos para isso como Context API, mas achei um ensinamento de usar state também, mesmo sendo como improv, funcionou. 
 *Update:* Fiquei curiosa como funcionava a Context API e depois que aprendi, implementei rs
 
-2. Trabalhar com checkboxes é bem dificil, há uma branch chamada `check-days` onde fiz vários testes para implementar o período por dias, mas tive bastante dificuldade em fazer funcionar e por isso não foi pra prod.
+2. Trabalhar com checkboxes achei bem difícil, há uma branch chamada `check-days` onde fiz vários testes para implementar o período por dias, mas tive bastante dificuldade em fazer funcionar e por isso não foi pra prod rs.
+
+3. Por não ter conhecimento em testes, esse foi um ponto que me intimidou desde o inicio, é uma vontade de aprender, mas sei que leva tempo o aprendizado e a implementação da "cultura" de testes.
 
 
 ### Pontos de melhorias
 
 - [ ] Trabalhar com múltiplos checkboxes!!!
-- [ ] [...]
+- [ ] Testes
 
 ## Deploy
 
@@ -167,4 +169,4 @@ Amanda Barboza @ [LinkedIn](https://linkedin/in/amandabrbz)
 
 ## Referências
 
-[Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | 
+[Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | [Context API](https://medium.com/reactbrasil/entendendo-a-context-api-do-react-criando-um-componente-de-loading-a84f84007dc7)
