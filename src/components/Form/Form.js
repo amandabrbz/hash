@@ -54,6 +54,7 @@ const Form = () => {
               currency="BRL"
               config={currencyConfig}
               name="amount"
+              id="amount"
               value={forms.amount}
               onChange={handleChange}
               placeholder="R$ 0,00"
@@ -65,6 +66,7 @@ const Form = () => {
             <input
               type="number"
               name="installments"
+              id="installments"
               max="12"
               min="0"
               step="1"
@@ -81,6 +83,7 @@ const Form = () => {
             <input
               type="number"
               name="mdr"
+              id="mdr"
               className="mdr"
               min="0"
               step="0.1"
