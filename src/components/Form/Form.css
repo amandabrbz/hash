@@ -7,6 +7,12 @@
   line-height: 1.4;
   color: #656565; }
 
+.box__form--subtitle {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #656565; }
+
 .box__form--form fieldset {
   margin-top: 22px; }
 
@@ -44,3 +50,18 @@
   font-size: 0.687rem;
   font-weight: 700;
   color: #CECECE; }
+
+.box__form--checkfield {
+  display: flex; }
+
+.box__form--checkfield label {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  white-space: nowrap;
+  margin-right: .45em; }
+
+.box__form--checkfield label input {
+  margin-right: .3em;
+  width: 0.8rem;
+  display: inline; }
