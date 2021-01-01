@@ -7,7 +7,7 @@ import "./Form.css";
 const Form = ({ setData }) => {
   const [showInfo, setShowInfo] = useState(false);
   const [forms, setForms] = useState({
-    amount: "",
+    amount: 0,
     installments: "",
     mdr: "",
   });
