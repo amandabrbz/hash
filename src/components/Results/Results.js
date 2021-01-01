@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Results.css";
+import { Context } from '../Box/Box';
 
-const Results = ({ data }) => {
+const Results = () => {
+  const {data} = useContext(Context);
   return (
     <div className="box__result">
       <h2 className="box__result--title">Você receberá:</h2>

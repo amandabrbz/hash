@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import IntlCurrencyInput from "react-intl-currency-input";
 import { POST } from "../../API/api";
-import { currencyConfig } from '../../config/CurrencyConfig';
+import { currencyConfig } from "../../config/CurrencyConfig";
+import { Context } from '../Box/Box';
 import "./Form.css";
 
-const Form = ({ setData }) => {
+const Form = () => {
+  const { setData } = useContext(Context);
+
   const [showInfo, setShowInfo] = useState(false);
   const [forms, setForms] = useState({
     amount: 0,
@@ -35,8 +38,8 @@ const Form = ({ setData }) => {
 
       setData({ ...json });
     } catch (error) {
-      alert('Não foi possível realizar o cálculo tente novamente.');
-      console.error(error)
+      alert("Não foi possível realizar o cálculo tente novamente.");
+      console.error(error);
     }
   }
 
