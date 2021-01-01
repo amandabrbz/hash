@@ -34,15 +34,15 @@ Desenvolver uma calculadora de antecipação para que os clientes consigam saber
 
 ## Requisitos
 
-- [ ] Use componentização.
+- [x] Use componentização.
 - [ ] Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos.
 - [ ] Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
 
 Os possíveis cenários devem ser cobertos e terem soluções implementadas. Não foi desenvolvido layout para isso, pois queremos observar como você lidará com eles:
 
 - [ ] Demora de respostas da API
-- [ ] Timeout da API
-- [ ] Conexão lenta
+- [x] Timeout da API
+- [x] Conexão lenta
 - [ ] Usuário estar offline
 
 ### Regras
@@ -100,11 +100,13 @@ http://localhost:3000
 
 ## Versionamento
 
-Trabalhei desenvolvendo cada fase do projeto atraves de *branches* apenas, pois não achei necessário trabalhar com PRs e nem SemVer, mas entendo todo o conceito por trás dos métodos.
+Trabalhei desenvolvendo cada fase do projeto atraves de *branches* apenas, pois não achei necessário trabalhar com PRs e nem SemVer, sendo que não haveria alguém para avaliar, mas entendo todo o conceito por trás dos métodos.
 
-Caso fosse preciso voltar em uma branch, eu rodava o comando de `git pull origin main` para atualizar a branch conforme a main.
+Caso fosse preciso voltar em uma *branch*, eu rodava o comando de `git pull origin main` para atualizar a *branch* conforme a main.
 
-Para organizar o desenvolvimento utilizei algumas do features do GitHub, como as  *issues* para ver quais problemas/fases precisava desenvolver. Utilizei o *kanban board* presente na aba Projetos, que é automatizado com as *issues*. Com esse *board* consigo mensurar o projeto como um todo.
+Para organizar o desenvolvimento utilizei algumas do *features* do GitHub, como as *issues* para ver quais problemas/fases precisava desenvolver. Utilizei o *kanban board* presente na aba Projetos, que é automatizado com as *issues*. Com esse *board* consigo mensurar o projeto como um todo.
+
+Os padrões de commit seguiram, na sua maioria, o verbo imperativo com uma breve explicação do que aconteceu no desenvolvimento. Exemplo: `adiciona componente`.
 
 ### Processo de Deploy
 
@@ -131,21 +133,24 @@ Como não veio a versão mobile e o layout segue um grid de 2 colunas, decidi fa
 
 ## Conclusões
 
-Uffa! Que desafio! [...]
+Uffa! Que desafio!
 
 ### Aprendizados
 
-[...]
+Acredito que aprendi bastante com o teste, nunca tinha mexido com libs externas, aqui tive a chance de aplicar uma; Desenvolver mais com os hooks e ver as possibilidades e as facilidades que eles dão;Alguns requisitos de acessibilidade para forms que precisei pesquisar; Comunicação com API, e como lidar com erros conforme as requisições falham; E muito mais :D
 
 ### Dificuldades
 
-Por não conhecer ainda todo o universo de React, Hooks, Redux e etc, tive um pouco de dificuldade de passar os valores entre os dois componentes que tinha criado. Fiz uma pesquisa intensiva e achei que há alguns métodos específicos para isso como ContextAPI, mas achei um ensinamento de usar state também, mesmo sendo como improv, funcionou.
+1. Por não conhecer ainda todo o universo de React, Hooks, Redux e etc, tive um pouco de dificuldade de passar os valores entre os dois componentes que tinha criado. Fiz uma pesquisa intensiva e achei que há alguns métodos específicos para isso como Context API, mas achei um ensinamento de usar state também, mesmo sendo como improv, funcionou. 
+*Update:* Fiquei curiosa como funcionava a Context API e depois que aprendi, implementei rs
+
+2. Trabalhar com checkboxes é bem dificil, há uma branch chamada `check-days` onde fiz vários testes para implementar o período por dias, mas tive bastante dificuldade em fazer funcionar e por isso não foi pra prod.
+
 
 ### Pontos de melhorias
 
-_Identificados by me._
-
-[...]
+- [ ] Trabalhar com múltiplos checkboxes!!!
+- [ ] [...]
 
 ## Deploy
 
