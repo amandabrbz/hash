@@ -23,9 +23,21 @@ const Form = () => {
     // eslint-disable-next-line
   }, [forms]);
 
-  function handleChecked(value) {
-    forms.days.push(value);
-    console.log(forms.days);
+  function handleChecked({ target }) {
+    const { value, checked } = target;
+    if (checked) {
+      if (!forms.days.includes(value)) {
+        setForms((prevState) => ({
+          ...forms,
+          days: [...prevState.days, value],
+        }));
+      }
+    } else {
+      setForms((prevState) => ({
+        ...forms,
+        days: prevState.days.filter((day) => day !== value),
+      }));
+    }
   }
 
   function handleChange({ target }, maskValue) {
@@ -102,50 +114,18 @@ const Form = () => {
         <fieldset>
           <h6 className="box__form--subtitle">Período que quer receber:</h6>
           <div className="box__form--checkfield">
-            <label htmlFor="1">
-              Amanhã
-              <input
-                type="checkbox"
-                name="1"
-                id="1"
-                value={1}
-                onChange={handleChange}
-                checked={handleChecked(1)}
-              />
-            </label>
-            <label htmlFor="15">
-              15 dias
-              <input
-                type="checkbox"
-                name="15"
-                id="15"
-                value={15}
-                onChange={handleChange}
-                checked={handleChecked(15)}
-              />
-            </label>
-            <label htmlFor="30">
-              30 dias
-              <input
-                type="checkbox"
-                name="30"
-                id="30"
-                value={30}
-                onChange={handleChange}
-                checked={handleChecked(30)}
-              />
-            </label>
-            <label htmlFor="90">
-              90 dias
-              <input
-                type="checkbox"
-                name="90"
-                id="90"
-                value="90"
-                checked={handleChecked(90)}
-                onChange={handleChange}
-              />
-            </label>
+            {[1, 15, 30, 90].map((item) => (
+              <label htmlFor={item} key={item}>
+                {item === 1 ? "Amanhã" : item + " dias"}
+                <input
+                  type="checkbox"
+                  name={item}
+                  id={item}
+                  value={item}
+                  onChange={handleChecked}
+                />
+              </label>
+            ))}
           </div>
         </fieldset>
       </form>
