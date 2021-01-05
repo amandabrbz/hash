@@ -12,4 +12,6 @@
   .box {
     max-width: 708px;
     box-shadow: 6px 9px 22px -2px rgba(0, 0, 0, 0.1);
-    grid-template-columns: 2fr 1.2fr; } }
+    grid-template-columns: 2fr 1.3fr;
+    width: 668px;
+    max-height: 780px; } }
