@@ -27,7 +27,8 @@ const Form = () => {
     let { name, value } = target;
 
     if (name === "amount") {
-      return value.replaceAll('.', '').replaceAll(',', '').replace('R$ ', '')
+      const cleanValue = value.replaceAll('.', '').replaceAll(',', '').replace('R$ ', '')
+      value = cleanValue
     }
     setForms({ ...forms, [name]: value });
   }
