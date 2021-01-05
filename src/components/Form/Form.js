@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import IntlCurrencyInput from "react-intl-currency-input";
 import { POST } from "../../API/api";
 import { currencyConfig } from "../../config/CurrencyConfig";
-import { Context } from '../Box/Box';
+import { Context } from "../Box/Box";
 import "./Form.css";
 
 const Form = () => {
@@ -37,6 +37,10 @@ const Form = () => {
       const json = await response.json();
 
       setData({ ...json });
+
+      if (response.status === 400) {
+        alert(json.message);
+      }
     } catch (error) {
       alert("Não foi possível realizar o cálculo tente novamente.");
       console.error(error);
@@ -58,6 +62,7 @@ const Form = () => {
               value={forms.amount}
               onChange={handleChange}
               placeholder="R$ 0,00"
+              autoFocus
               required
             />
           </fieldset>

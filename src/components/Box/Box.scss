@@ -3,17 +3,17 @@
 
 .box {
   width: 100%;
-  max-width: 608px;
   height: auto;
   border: 1px solid $border;
   border-radius: $radius;
   display: grid;
   background: $white;
   grid-template-columns: 1fr;
-
+  
   @include mediaMin($breakpoint-small) {
     box-shadow: 6px 9px 22px -2px $sombra;
-    grid-template-columns: 2fr 1.145fr;
+    grid-template-columns: 2fr 1.3fr;
+    width: 668px;
     max-height: 780px;
   }
 }
