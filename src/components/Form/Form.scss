@@ -52,12 +52,25 @@
           -moz-appearance:textfield !important;
         }
       }
+
+      &.error {
+        border: 1px solid red;
+        color: red;
+      }
     }
 
     small {
+      margin-top: 5px;
       font-size: 0.687rem;
+      line-height: .7rem;
       font-weight: 700;
       color: $grey;
+      display: block;
+
+      &.error {
+        color: red;
+        font-weight: normal;
+      }
     }
   }
 }
