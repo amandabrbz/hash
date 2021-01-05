@@ -29,6 +29,8 @@
     font-size: 1rem;
     line-height: 1.1;
     font-weight: 300;
+    animation: moving 500ms ease-in;
+
     @include mediaMin($breakpoint-small) {
       &:first-of-type {
         margin: 26px 0 10px;
@@ -39,5 +41,14 @@
       font-weight: 700;
       white-space: nowrap;
     }
+  }
+}
+
+@keyframes moving {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0px);
   }
 }

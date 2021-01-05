@@ -25,7 +25,8 @@
   font-style: italic;
   font-size: 1rem;
   line-height: 1.1;
-  font-weight: 300; }
+  font-weight: 300;
+  animation: moving 500ms ease-in; }
 
 @media screen and (min-width: 578px) {
   .box__result--text:first-of-type {
@@ -34,3 +35,9 @@
 .box__result--text strong {
   font-weight: 700;
   white-space: nowrap; }
+
+@keyframes moving {
+  from {
+    transform: translateY(20px); }
+  to {
+    transform: translateY(0px); } }
