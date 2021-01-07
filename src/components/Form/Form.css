@@ -46,8 +46,14 @@
   margin: 0 !important;
   -moz-appearance: textfield !important; }
 
+.box__form--form input.error {
+  border: 1px solid red;
+  color: red; }
+
 .box__form--form small {
+  margin-top: 5px;
   font-size: 0.687rem;
+  line-height: .7rem;
   font-weight: 700;
   color: #CECECE; }
 
@@ -64,4 +70,10 @@
 .box__form--checkfield label input {
   margin-right: .3em;
   width: 0.8rem;
-  display: inline; }
+  display: inline; 
+  color: #CECECE;
+  display: block; }
+
+.box__form--form small.error {
+  color: red;
+  font-weight: normal; }
