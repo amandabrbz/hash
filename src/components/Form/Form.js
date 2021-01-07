@@ -24,6 +24,13 @@ const Form = () => {
     // eslint-disable-next-line
   }, [forms]);
 
+  useEffect(() => {
+    if (days.length !== 0) {
+      setForms({ ...forms, days: days });
+    }
+    // eslint-disable-next-line
+  }, [days]);
+
   function handleChecked({ target }) {
     const { value, checked } = target;
 
@@ -33,12 +40,6 @@ const Form = () => {
       }
     } else {
       setDays(days.filter((day) => day !== value));
-      console.log(days + "else");
-    }
-
-    if (days.length !== 0) {
-      console.log(days);
-      setForms({ ...forms, days: days });
     }
   }
 
