@@ -8,7 +8,8 @@ const Results = () => {
   function formatString(value) {
     let cleanValue = value + "";
     cleanValue = cleanValue.replace(/([0-9]{2})$/g, ",$1");
-    if (cleanValue.length > 6) cleanValue = cleanValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+    if (cleanValue.length > 6)
+      cleanValue = cleanValue.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
 
     return cleanValue;
   }
@@ -16,22 +17,26 @@ const Results = () => {
   return (
     <div className="box__result">
       <h2 className="box__result--title">Você receberá:</h2>
-      <p className="box__result--text">
-        Amanhã:
-        <strong>{data[1] ? " R$ " + formatString(data[1]) : "R$ 0,00"}</strong>
-      </p>
-      <p className="box__result--text">
-        Em 15 dias:
-        <strong>{data[15] ? " R$ " + formatString(data[15]) : "R$ 0,00"}</strong>
-      </p>
-      <p className="box__result--text">
-        Em 30 dias:
-        <strong>{data[30] ? " R$ " + formatString(data[30]) : "R$ 0,00"}</strong>
-      </p>
-      <p className="box__result--text">
-        Em 90 dias:
-        <strong>{data[90] ? " R$ " + formatString(data[90]) : "R$ 0,00"}</strong>
-      </p>
+      {data[1] ? (
+        <p className="box__result--text">
+          Amanhã: <strong>R${formatString(data[1])}</strong>
+        </p>
+      ) : null}
+      {data[15] ? (
+        <p className="box__result--text">
+          Em 15 dias: <strong>R${formatString(data[15])}</strong>
+        </p>
+      ) : null}
+      {data[30] ? (
+        <p className="box__result--text">
+          Em 30 dias: <strong>R${formatString(data[30])}</strong>
+        </p>
+      ) : null}
+      {data[90] ? (
+        <p className="box__result--text">
+          Em 90 dias: <strong>R${formatString(data[90])}</strong>
+        </p>
+      ) : null}
     </div>
   );
 };

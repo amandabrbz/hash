@@ -10,15 +10,15 @@ const Form = () => {
 
   const [showInfo, setShowInfo] = useState(false);
   const [error, setError] = useState({});
+  const [days, setDays] = useState([]);
   const [forms, setForms] = useState({
     amount: 0,
     installments: "",
     mdr: "",
-    days: [],
   });
 
   useEffect(() => {
-    if (forms.amount !== "" && forms.installments !== "" && forms.mdr !== "") {
+    if (error) {
       handlePOST(forms);
     }
     // eslint-disable-next-line
@@ -26,18 +26,19 @@ const Form = () => {
 
   function handleChecked({ target }) {
     const { value, checked } = target;
+
     if (checked) {
-      if (!forms.days.includes(value)) {
-        setForms((prevState) => ({
-          ...forms,
-          days: [...prevState.days, value],
-        }));
+      if (!days.includes(value)) {
+        setDays([...days, value]);
       }
     } else {
-      setForms((prevState) => ({
-        ...forms,
-        days: prevState.days.filter((day) => day !== value),
-      }));
+      setDays(days.filter((day) => day !== value));
+      console.log(days + "else");
+    }
+
+    if (days.length !== 0) {
+      console.log(days);
+      setForms({ ...forms, days: days });
     }
   }
 
@@ -51,6 +52,8 @@ const Form = () => {
         .replace("R$ ", "");
       value = cleanValue;
     }
+
+    if (error) validate(forms);
     setForms({ ...forms, [name]: value });
   }
 
@@ -62,25 +65,23 @@ const Form = () => {
     let errors = {};
 
     if (values.installments > 12) {
-      errors.installments = "Não pode ser maior que 12 parcelas";
+      errors.installments = "Máximo de 12 parcelas";
     } else if (values.installments <= 0) {
-      errors.installments = "Não pode ser menor que 0 parcelas";
+      errors.installments = "Mínimo de 1 parcela";
     } else if (!values.installments) {
-      errors.installments = "Não pode estar em branco";
+      errors.installments = "Campo em branco";
     }
 
-    if (values.amount > 1000000000) {
-      errors.amount = "Não pode ser maior que cem milhões de reais";
+    if (values.amount > 100000000) {
+      errors.amount = "Valor máximo de um milhão";
     } else if (values.amount <= 0) {
-      errors.amount = "Não pode ser menor que zero reais";
+      errors.amount = "Não pode ser zero reais";
     } else if (!values.amount) {
-      errors.amount = "Não pode estar em branco";
+      errors.amount = "Campo em branco";
     }
 
-    if (values.mdr <= 0) {
-      errors.mdr = "Não pode ser menor que zero";
-    } else if (!values.mdr) {
-      errors.mdr = "Não pode estar em branco";
+    if (!values.mdr) {
+      errors.mdr = "Campo em branco";
     }
 
     return errors;
@@ -92,9 +93,6 @@ const Form = () => {
     try {
       const response = await fetch(url, options);
       const json = await response.json();
-
-      console.log(forms);
-      console.log(json);
 
       setData({ ...json });
     } catch (error) {

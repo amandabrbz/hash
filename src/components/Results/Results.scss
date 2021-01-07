@@ -1,7 +1,7 @@
 @import "../../styles/default.scss";
 
 .box__result {
-  height: 100%;
+  height: auto;
   padding: 35px 70px 35px 50px;
   background: $bg-grey;
 
@@ -20,6 +20,7 @@
     text-transform: uppercase;
     color: $secondary;
     border-bottom: 2px solid $opsecondary;
+    animation: moving 500ms ease-in;
   }
 
   &--text {
