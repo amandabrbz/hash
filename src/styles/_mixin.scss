@@ -9,3 +9,25 @@
     @content;
   }
 }
+
+@mixin moving {
+  @keyframes moving {
+    from {
+      transform: translateY(20px);
+    }
+    to {
+      transform: translateY(0px);
+    }
+  }
+}
+
+@mixin movingMin {
+  @keyframes movingMin {
+    from {
+      transform: translateY(5px);
+    }
+    to {
+      transform: translateY(0px);
+    }
+  }
+}

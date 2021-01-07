@@ -18,7 +18,7 @@ const Form = () => {
   });
 
   useEffect(() => {
-    if (error) {
+    if (forms.amount !== 0 & forms.installments !== "" & forms.mdr !== "") {
       handlePOST(forms);
     }
     // eslint-disable-next-line
@@ -66,11 +66,11 @@ const Form = () => {
     let errors = {};
 
     if (values.installments > 12) {
-      errors.installments = "Máximo de 12 parcelas";
+      errors.installments = "Valor máximo de 12 parcelas";
     } else if (values.installments <= 0) {
-      errors.installments = "Mínimo de 1 parcela";
+      errors.installments = "Valor mínimo de 1 parcela";
     } else if (!values.installments) {
-      errors.installments = "Campo em branco";
+      errors.mdr = "Não pode estar em branco";
     }
 
     if (values.amount > 100000000) {
@@ -78,11 +78,11 @@ const Form = () => {
     } else if (values.amount <= 0) {
       errors.amount = "Não pode ser zero reais";
     } else if (!values.amount) {
-      errors.amount = "Campo em branco";
+      errors.mdr = "Não pode estar em branco";
     }
 
     if (!values.mdr) {
-      errors.mdr = "Campo em branco";
+      errors.mdr = "Não pode estar em branco";
     }
 
     return errors;
@@ -96,6 +96,7 @@ const Form = () => {
       const json = await response.json();
 
       setData({ ...json });
+      
     } catch (error) {
       alert("Não foi possível realizar o cálculo tente novamente.");
       console.error(error);
