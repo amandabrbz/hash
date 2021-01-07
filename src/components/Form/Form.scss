@@ -8,9 +8,11 @@
     font-weight: 700;
     line-height: 1.4;
     color: $primary;
+    animation: moving 500ms ease-in;
   }
 
   &--form {
+    animation: moving 500ms ease-in;
     fieldset {
       margin-top: 22px;
     }
@@ -37,6 +39,7 @@
       padding: 0 14px;
       font-size: 0.875rem;
       color: $black;
+      transition: border 100ms all;
 
       &:active,
       &:focus {
@@ -66,11 +69,16 @@
       font-weight: 700;
       color: $grey;
       display: block;
-
+      
       &.error {
+        display: block;
         color: red;
         font-weight: normal;
+        animation: movingMin 100ms ease-in;
       }
     }
   }
 }
+
+@include moving;
+@include movingMin;

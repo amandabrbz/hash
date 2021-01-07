@@ -27,8 +27,11 @@ const Form = () => {
     let { name, value } = target;
 
     if (name === "amount") {
-      const cleanValue = value.replaceAll('.', '').replaceAll(',', '').replace('R$ ', '')
-      value = cleanValue
+      const cleanValue = value
+        .replaceAll(".", "")
+        .replaceAll(",", "")
+        .replace("R$ ", "");
+      value = cleanValue;
     }
     setForms({ ...forms, [name]: value });
   }
@@ -41,24 +44,22 @@ const Form = () => {
     let errors = {};
 
     if (values.installments > 12) {
-      errors.installments = "Não pode ser maior que 12 parcelas";
+      errors.installments = "Máximo de 12 parcelas";
     } else if (values.installments <= 0) {
-      errors.installments = "Não pode ser menor que 0 parcelas";
+      errors.installments = "Mínimo de 1 parcela";
     } else if (!values.installments) {
       errors.installments = "Não pode estar em branco";
     }
 
-    if (values.amount > 1000000000) {
-      errors.amount = "Não pode ser maior que cem milhões de reais";
+    if (values.amount > 100000000) {
+      errors.amount = "Máximo de um milhão";
     } else if (values.amount <= 0) {
-      errors.amount = "Não pode ser menor que zero reais";
+      errors.amount = "Campo inválido";
     } else if (!values.amount) {
       errors.amount = "Não pode estar em branco";
     }
 
-    if (values.mdr <= 0) {
-      errors.mdr = "Não pode ser menor que zero";
-    } else if (!values.mdr) {
+    if (!values.mdr) {
       errors.mdr = "Não pode estar em branco";
     }
 
@@ -72,10 +73,8 @@ const Form = () => {
       const response = await fetch(url, options);
       const json = await response.json();
 
-      console.log(forms);
-      console.log(json);
-
       setData({ ...json });
+      
     } catch (error) {
       alert("Não foi possível realizar o cálculo tente novamente.");
       console.error(error);
