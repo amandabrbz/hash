@@ -2,8 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import IntlCurrencyInput from "react-intl-currency-input";
 import { POST } from "../../API/api";
 import { currencyConfig } from "../../config/CurrencyConfig";
+import { toastConfig } from '../../config/Toast';
 import { Context } from "../Box/Box";
+import { ToastContainer, toast } from "react-toastify";
 import "./Form.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const Form = () => {
   const { setData } = useContext(Context);
@@ -18,7 +21,11 @@ const Form = () => {
   });
 
   useEffect(() => {
-    if (forms.amount !== 0 & forms.installments !== "" & forms.mdr !== "") {
+    if (
+      (forms.amount !== 0) &
+      (forms.installments !== "") &
+      (forms.mdr !== "")
+    ) {
       handlePOST(forms);
     }
     // eslint-disable-next-line
@@ -96,9 +103,8 @@ const Form = () => {
       const json = await response.json();
 
       setData({ ...json });
-      
     } catch (error) {
-      alert("Não foi possível realizar o cálculo tente novamente.");
+      toast.error("Não foi possível realizar o cálculo tente novamente.", toastConfig);
       console.error(error);
     }
   }
@@ -181,6 +187,7 @@ const Form = () => {
           </div>
         </fieldset>
       </form>
+      <ToastContainer />
     </div>
   );
 };
