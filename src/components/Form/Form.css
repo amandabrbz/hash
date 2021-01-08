@@ -34,6 +34,7 @@
   margin-bottom: 6px; }
 
 .box__form--form dt {
+  max-width: 99%;
   cursor: pointer;
   transition: all 200ms ease; }
 
@@ -44,6 +45,7 @@
   margin-left: 10px; }
 
 .box__form--form dt + dd {
+  max-width: 99%;
   display: none;
   animation: moving 200ms forwards; }
 
@@ -66,7 +68,7 @@
 
 .box__form--form input {
   width: 100%;
-  max-width: 251px;
+  max-width: 230px;
   height: 37px;
   border-radius: 4px;
   border: 1px solid #DDE6E9;
@@ -103,30 +105,35 @@
   animation: movingMin 100ms ease-in; }
 
 .box__form--checkfield {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .box__form--checkfield label {
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
   white-space: nowrap;
-  margin-right: 0.45em;
+  margin-right: 1em;
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.5;
   color: #656565; }
 
 .box__form--checkfield label input {
-  margin-right: 0.2em;
   width: 0.8rem;
   height: auto;
   display: inline;
   border-radius: 4px;
   border: 1px solid #DDE6E9; }
 
+.box__form--checkfield label input[type="checkbox"] {
+  margin: 0;
+  padding: 0;
+  margin-right: 0.2rem; }
+
 @media screen and (min-width: 578px) {
-  .box__form--checkfield label input {
-    margin-right: 0.3em; } }
+  .box__form--checkfield label input[type="checkbox"] {
+    margin-right: 0.4em; } }
 
 @keyframes moving {
   from {
