@@ -113,6 +113,7 @@ const Form = () => {
             onBlur={handleOnBlur}
             placeholder="R$ 0,00"
             className={error.amount && "error"}
+            inputMode="numeric"
             autoFocus
             required
           />
@@ -133,6 +134,7 @@ const Form = () => {
             onBlur={handleOnBlur}
             onFocus={() => setShowInfo(true)}
             className={error.installments && "error"}
+            inputMode="numeric"
             required
           />
           {showInfo && <small>Máximo de 12 parcelas</small>}
@@ -153,6 +155,7 @@ const Form = () => {
             onChange={handleChange}
             onBlur={handleOnBlur}
             className={error.mdr ? "error mdr" : "mdr"}
+            inputMode="numeric"
             required
           />
           {error.mdr && <small className="error">{error.mdr}</small>}

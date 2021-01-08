@@ -56,6 +56,10 @@
       
       &:hover {
         color: $active;
+        
+        &::after {
+          color: $active;
+        }
       }
 
       &.active{
@@ -131,14 +135,21 @@
       flex-direction: row-reverse;
       white-space: nowrap;
       margin-right: 0.45em;
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: $primary;
 
       input {
-        margin-right: 0.3em;
+        margin-right: 0.2em;
         width: 0.8rem;
-        width: auto;
+        height: auto;
         display: inline;
         border-radius: $radius;
         border: 1px solid $border;
+        @include mediaMin($breakpoint-small) {
+          margin-right: 0.3em;
+        }
       }
     }
   }
