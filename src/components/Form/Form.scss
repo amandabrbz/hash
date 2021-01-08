@@ -29,12 +29,48 @@
       display: block;
     }
 
-    label {
+    label,
+    dt {
       font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       color: $primary;
       margin-bottom: 6px;
+    }
+
+    dt {
+      cursor: pointer;
+      transition: all 200ms ease;
+
+      &::after {
+        content: "↓";
+        font-size: 1rem;
+        color: $primary;
+        margin-left: 10px;
+      }
+
+      + dd {
+        display: none;
+        animation: moving 200ms forwards;
+      }
+      
+      &:hover {
+        color: $active;
+      }
+
+      &.active{
+        color: $active;
+
+        &::after {
+          content: "↑";
+          color: $active;
+        }
+
+        + dd {
+          display: block;
+          animation: moving 200ms ease-in;
+        }
+      }
     }
 
     input {
@@ -72,11 +108,11 @@
     small {
       margin-top: 5px;
       font-size: 0.687rem;
-      line-height: .7rem;
+      line-height: 0.7rem;
       font-weight: 700;
       color: $grey;
       display: block;
-      
+
       &.error {
         display: block;
         color: red;
@@ -94,10 +130,10 @@
       align-items: center;
       flex-direction: row-reverse;
       white-space: nowrap;
-      margin-right: .45em;
+      margin-right: 0.45em;
 
       input {
-        margin-right: .3em;
+        margin-right: 0.3em;
         width: 0.8rem;
         display: inline;
       }

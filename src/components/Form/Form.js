@@ -12,6 +12,7 @@ import validate from "../../helpers/errors";
 const Form = () => {
   const { setData } = useContext(Context);
 
+  const [active, setActive] = useState(false)
   const [showInfo, setShowInfo] = useState(false);
   const [error, setError] = useState({});
   const [days, setDays] = useState([]);
@@ -77,11 +78,16 @@ const Form = () => {
       setData({ ...json });
 
       if (response.status === 404) {
-        toast.error("Não foi possível realizar o cálculo tente novamente.", toastConfig);
+        toast.error(
+          "Não foi possível realizar o cálculo tente novamente.",
+          toastConfig
+        );
       }
-      
     } catch (error) {
-      toast.error("Não foi possível realizar o cálculo tente novamente.", toastConfig);
+      toast.error(
+        "Não foi possível realizar o cálculo tente novamente.",
+        toastConfig
+      );
       console.error(error);
     }
   }
@@ -147,21 +153,24 @@ const Form = () => {
           {error.mdr && <small className="error">{error.mdr}</small>}
         </fieldset>
         <fieldset>
-          <h6 className="box__form--subtitle">Período que quer receber:</h6>
-          <div className="box__form--checkfield">
-            {[1, 15, 30, 90].map((item) => (
-              <label htmlFor={item} key={item}>
-                {item === 1 ? "Amanhã" : item + " dias"}
-                <input
-                  type="checkbox"
-                  name={item}
-                  id={item}
-                  value={item}
-                  onChange={handleChecked}
-                />
-              </label>
-            ))}
-          </div>
+          <dt onClick={_ => setActive(!active)} className={active ? 'active' : null}>Filtrar por período?</dt>
+          <dd>
+            <h6 className="box__form--subtitle">Período que quer receber:</h6>
+            <div className="box__form--checkfield">
+              {[1, 15, 30, 90].map((item) => (
+                <label htmlFor={item} key={item}>
+                  {item === 1 ? "Amanhã" : item + " dias"}
+                  <input
+                    type="checkbox"
+                    name={item}
+                    id={item}
+                    value={item}
+                    onChange={handleChecked}
+                  />
+                </label>
+              ))}
+            </div>
+          </dd>
         </fieldset>
       </form>
       <ToastContainer />
