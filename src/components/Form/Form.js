@@ -75,6 +75,11 @@ const Form = () => {
       const json = await response.json();
 
       setData({ ...json });
+
+      if (response.status === 404) {
+        toast.error("Não foi possível realizar o cálculo tente novamente.", toastConfig);
+      }
+      
     } catch (error) {
       toast.error("Não foi possível realizar o cálculo tente novamente.", toastConfig);
       console.error(error);
