@@ -12,7 +12,7 @@ import validate from "../../helpers/errors";
 const Form = () => {
   const { setData } = useContext(Context);
 
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [error, setError] = useState({});
   const [days, setDays] = useState([]);
@@ -34,8 +34,13 @@ const Form = () => {
   }, [forms]);
 
   useEffect(() => {
-    if (days.length !== 0) {
+    if (days.length !== -1) {
       setForms({ ...forms, days: days });
+
+      if(days.length === 0) {
+        const {days, ...withoutDays} = forms
+        setForms(withoutDays)
+      }
     }
     // eslint-disable-next-line
   }, [days]);
@@ -153,7 +158,12 @@ const Form = () => {
           {error.mdr && <small className="error">{error.mdr}</small>}
         </fieldset>
         <fieldset>
-          <dt onClick={_ => setActive(!active)} className={active ? 'active' : null}>Filtrar por período?</dt>
+          <dt
+            onClick={(_) => setActive(!active)}
+            className={active ? "active" : null}
+          >
+            Filtrar por período?
+          </dt>
           <dd>
             <div className="box__form--checkfield">
               {[1, 15, 30, 90].map((item) => (
