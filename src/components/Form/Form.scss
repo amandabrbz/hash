@@ -39,30 +39,32 @@
     }
 
     dt {
+      max-width: 99%;
       cursor: pointer;
       transition: all 200ms ease;
-
+      
       &::after {
         content: "↓";
         font-size: 1rem;
         color: $primary;
         margin-left: 10px;
       }
-
+      
       + dd {
+        max-width: 99%;
         display: none;
         animation: moving 200ms forwards;
       }
-      
+
       &:hover {
         color: $active;
-        
+
         &::after {
           color: $active;
         }
       }
 
-      &.active{
+      &.active {
         color: $active;
 
         &::after {
@@ -79,7 +81,7 @@
 
     input {
       width: 100%;
-      max-width: 251px;
+      max-width: 230px;
       height: 37px;
       border-radius: $radius;
       border: 1px solid $border;
@@ -128,27 +130,33 @@
 
   &--checkfield {
     display: flex;
+    flex-wrap: wrap;
 
     label {
       display: flex;
       align-items: center;
       flex-direction: row-reverse;
       white-space: nowrap;
-      margin-right: 0.45em;
+      margin-right: 1em;
       font-weight: 400;
       font-size: 0.875rem;
       line-height: 1.5;
       color: $primary;
 
       input {
-        margin-right: 0.2em;
         width: 0.8rem;
         height: auto;
         display: inline;
         border-radius: $radius;
         border: 1px solid $border;
+      }
+
+      input[type="checkbox"] {
+        margin: 0;
+        padding: 0;
+        margin-right: 0.2rem;
         @include mediaMin($breakpoint-small) {
-          margin-right: 0.3em;
+          margin-right: 0.4em;
         }
       }
     }
