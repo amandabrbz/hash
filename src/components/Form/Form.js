@@ -54,10 +54,7 @@ const Form = () => {
     let { name, value } = target;
 
     if (name === "amount") {
-      const cleanValue = value
-        .replaceAll(".", "")
-        .replaceAll(",", "")
-        .replace("R$ ", "");
+      const cleanValue = value.replaceAll(/[^0-9]/g, "");
       value = cleanValue;
     }
 
