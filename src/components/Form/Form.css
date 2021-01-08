@@ -112,7 +112,10 @@
 .box__form--checkfield label input {
   margin-right: 0.3em;
   width: 0.8rem;
-  display: inline; }
+  width: auto;
+  display: inline;
+  border-radius: 4px;
+  border: 1px solid #DDE6E9; }
 
 @keyframes moving {
   from {
