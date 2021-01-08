@@ -155,7 +155,6 @@ const Form = () => {
         <fieldset>
           <dt onClick={_ => setActive(!active)} className={active ? 'active' : null}>Filtrar por período?</dt>
           <dd>
-            <h6 className="box__form--subtitle">Período que quer receber:</h6>
             <div className="box__form--checkfield">
               {[1, 15, 30, 90].map((item) => (
                 <label htmlFor={item} key={item}>

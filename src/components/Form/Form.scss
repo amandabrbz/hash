@@ -135,7 +135,10 @@
       input {
         margin-right: 0.3em;
         width: 0.8rem;
+        width: auto;
         display: inline;
+        border-radius: $radius;
+        border: 1px solid $border;
       }
     }
   }
