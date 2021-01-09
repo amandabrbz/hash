@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import validate from "../../helpers/errors";
 
 const Form = () => {
-  const { setData } = useContext(Context);
+  const { setData, setLoading } = useContext(Context);
 
   const [active, setActive] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
@@ -37,9 +37,9 @@ const Form = () => {
     if (days.length !== -1) {
       setForms({ ...forms, days: days });
 
-      if(days.length === 0) {
-        const {days, ...withoutDays} = forms
-        setForms(withoutDays)
+      if (days.length === 0) {
+        const { days, ...withoutDays } = forms;
+        setForms(withoutDays);
       }
     }
     // eslint-disable-next-line
@@ -76,6 +76,7 @@ const Form = () => {
   async function handlePOST(forms) {
     const { url, options } = POST(forms);
 
+    setLoading(true);
     try {
       const response = await fetch(url, options);
       const json = await response.json();
@@ -87,14 +88,16 @@ const Form = () => {
           "Não foi possível realizar o cálculo tente novamente.",
           toastConfig
         );
+        setLoading(false);
       }
     } catch (error) {
       toast.error(
         "Não foi possível realizar o cálculo tente novamente.",
         toastConfig
       );
-      console.error(error);
+      setLoading(false);
     }
+    setLoading(false);
   }
 
   return (
