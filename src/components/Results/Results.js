@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import "./Results.css";
 import { Context } from "../Box/Box";
+import Loading from "../Loading/Loading";
 
 const Results = () => {
-  const { data } = useContext(Context);
+  const { data, loading } = useContext(Context);
+  console.log(loading);
 
   function formatString(value) {
     let cleanValue = value + "";
@@ -17,6 +19,13 @@ const Results = () => {
   return (
     <div className="box__result">
       <h2 className="box__result--title">Você receberá:</h2>
+
+      {Object.keys(data).length === 0 ? (
+        <p className="box__result--text">Digite os campos obrigatórios</p>
+      ) : null}
+
+      {loading ? <Loading /> : null }
+
       {data[1] ? (
         <p className="box__result--text">
           Amanhã: <strong>R${formatString(data[1])}</strong>
