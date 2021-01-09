@@ -4,6 +4,7 @@ import { Context } from "../Box/Box";
 
 const Results = () => {
   const { data } = useContext(Context);
+  console.log(data);
 
   function formatString(value) {
     let cleanValue = value + "";
@@ -17,6 +18,9 @@ const Results = () => {
   return (
     <div className="box__result">
       <h2 className="box__result--title">Você receberá:</h2>
+      {Object.keys(data).length === 0 ? (
+        <p className="box__result--text">Digite os campos obrigatórios</p>
+      ) : null}
       {data[1] ? (
         <p className="box__result--text">
           Amanhã: <strong>R${formatString(data[1])}</strong>
