@@ -169,4 +169,4 @@ Amanda Barboza @ [LinkedIn](https://linkedin/in/amandabrbz)
 
 ## Referências
 
-[Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | [Context API](https://medium.com/reactbrasil/entendendo-a-context-api-do-react-criando-um-componente-de-loading-a84f84007dc7) | [Validate Forms](https://www.smashingmagazine.com/2020/10/react-validation-formik-yup/) | 
+[Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | [Context API](https://medium.com/reactbrasil/entendendo-a-context-api-do-react-criando-um-componente-de-loading-a84f84007dc7) | [Validate Forms](https://www.smashingmagazine.com/2020/10/react-validation-formik-yup/) | [Testes](https://medium.com/tableless/você-é-irresponsável-por-não-escrever-testes-de-front-end-70c2858b62df)
