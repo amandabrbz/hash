@@ -61,7 +61,7 @@ const Form = () => {
     let { name, value } = target;
 
     if (name === "amount") {
-      const cleanValue = value.replaceAll(/[^0-9]/g, "");
+      const cleanValue = value.toString().replace(/[^0-9]/g, "");
       value = cleanValue;
     }
 
@@ -103,7 +103,7 @@ const Form = () => {
   return (
     <div className="box__form">
       <h1 className="box__form--title">Simule sua Antecipação</h1>
-      <form className="box__form--form" autoComplete="off">
+      <form className="box__form--form" autoComplete="off" data-testid="calculator">
         <fieldset>
           <label htmlFor="amount">Informe o valor da venda*</label>
           <IntlCurrencyInput
