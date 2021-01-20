@@ -54,7 +54,6 @@ Os possíveis cenários devem ser cobertos e terem soluções implementadas. Nã
 
 [Para saber mais sobre o teste, clique aqui :raising_hand:](https://github.com/hashlab/hiring/blob/master/challenges/pt-br/front-challenge.md)
 
-
 ## Getting Started
 
 Para ter uma cópia local e fazer rodá-lo, siga esses passos:
@@ -100,11 +99,11 @@ http://localhost:3000
 
 ## Versionamento
 
-Trabalhei desenvolvendo cada fase do projeto atraves de *branches* apenas, pois não achei necessário trabalhar com PRs e nem SemVer, sendo que não haveria alguém para avaliar, mas entendo todo o conceito por trás dos métodos.
+Trabalhei desenvolvendo cada fase do projeto atraves de _branches_ apenas, pois não achei necessário trabalhar com PRs e nem SemVer, sendo que não haveria alguém para avaliar, mas entendo todo o conceito por trás dos métodos.
 
-Caso fosse preciso voltar em uma *branch*, eu rodava o comando de `git pull origin main` para atualizar a *branch* conforme a main.
+Caso fosse preciso voltar em uma _branch_, eu rodava o comando de `git pull origin main` para atualizar a _branch_ conforme a main.
 
-Para organizar o desenvolvimento utilizei algumas do *features* do GitHub, como as *issues* para ver quais problemas/fases precisava desenvolver. Utilizei o *kanban board* presente na aba Projetos, que é automatizado com as *issues*. Com esse *board* consigo mensurar o projeto como um todo.
+Para organizar o desenvolvimento utilizei algumas do _features_ do GitHub, como as _issues_ para ver quais problemas/fases precisava desenvolver. Utilizei o _kanban board_ presente na aba Projetos, que é automatizado com as _issues_. Com esse _board_ consigo mensurar o projeto como um todo.
 
 Os padrões de commit seguiram, na sua maioria, o verbo imperativo com uma breve explicação do que aconteceu no desenvolvimento. Exemplo: `adiciona componente`.
 
@@ -112,7 +111,7 @@ Os padrões de commit seguiram, na sua maioria, o verbo imperativo com uma breve
 
 Já tenho alguns projetos pessoais em plataformas como a Netlify e a Heroku, mas tendo pela preferência da usabilidade e configuração da Netlify.
 
-Para deixar o processo mais automatizado, o deploy ocorre toda vez que há um *push* na **branch main** e a Netlify roda o `npm build` e faz a publicação, mas é possível retirar essa automatização e fazer manualmente via CLI próprio da Netlify ou diretamente na plataforma.
+Para deixar o processo mais automatizado, o deploy ocorre toda vez que há um _push_ na **branch main** e a Netlify roda o `npm build` e faz a publicação, mas é possível retirar essa automatização e fazer manualmente via CLI próprio da Netlify ou diretamente na plataforma.
 
 ```bash
 npm run build
@@ -141,13 +140,12 @@ Acredito que aprendi bastante com o teste, nunca tinha mexido com libs externas,
 
 ### Dificuldades
 
-1. Por não conhecer ainda todo o universo de React, Hooks, Redux e etc, tive um pouco de dificuldade de passar os valores entre os dois componentes que tinha criado. Fiz uma pesquisa intensiva e achei que há alguns métodos específicos para isso como Context API, mas achei um ensinamento de usar state também, mesmo sendo como improv, funcionou. 
-*Update:* Fiquei curiosa como funcionava a Context API e depois que aprendi, implementei rs
+1. Por não conhecer ainda todo o universo de React, Hooks, Redux e etc, tive um pouco de dificuldade de passar os valores entre os dois componentes que tinha criado. Fiz uma pesquisa intensiva e achei que há alguns métodos específicos para isso como Context API, mas achei um ensinamento de usar state também, mesmo sendo como improv, funcionou.
+   _Update:_ Fiquei curiosa como funcionava a Context API e depois que aprendi, implementei rs
 
-2. Trabalhar com checkboxes achei bem difícil, há uma branch chamada `check-days` onde fiz vários testes para implementar o período por dias, mas tive bastante dificuldade em fazer funcionar e por isso não foi pra prod rs. *Update:* Depois de muitas tentativas, pesquisas e estudos, eu consegui rs!
+2. Trabalhar com checkboxes achei bem difícil, há uma branch chamada `check-days` onde fiz vários testes para implementar o período por dias, mas tive bastante dificuldade em fazer funcionar e por isso não foi pra prod rs. _Update:_ Depois de muitas tentativas, pesquisas e estudos, eu consegui rs!
 
 3. Por não ter conhecimento em testes, esse foi um ponto que me intimidou desde o inicio, é uma vontade de aprender, mas sei que leva tempo o aprendizado e a implementação da "cultura" de testes.
-
 
 ### Pontos de melhorias
 
@@ -170,3 +168,13 @@ Amanda Barboza @ [LinkedIn](https://linkedin/in/amandabrbz)
 ## Referências
 
 [Passing data between siblings](https://www.youtube.com/watch?v=Qf68sssXPtM) | [Context API](https://medium.com/reactbrasil/entendendo-a-context-api-do-react-criando-um-componente-de-loading-a84f84007dc7) | [Validate Forms](https://www.smashingmagazine.com/2020/10/react-validation-formik-yup/) | [Testes](https://medium.com/tableless/você-é-irresponsável-por-não-escrever-testes-de-front-end-70c2858b62df)
+
+<hr/>
+
+<details>
+  <summary>bonus</summary>
+  <article>
+    <img src="./photo.jpeg"/>
+    <p>this tip was provided by Sara rs :grimacing:</p>
+  </article>
+</details>
