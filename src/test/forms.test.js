@@ -11,8 +11,8 @@ describe("calculating", () => {
     const installments = screen.getByLabelText(/em quantas parcelas\*/i);
     const mdr = screen.getByLabelText(/informe o percentual de mdr\*/i);
 
-    fireEvent.change(amount, { target: { value: "R$150.00" } });
-    expect(amount.value).toBe("R$150.00");
+    fireEvent.change(amount, { target: { value: "R$150,00" } });
+    expect(amount.value).toBe("R$150,00");
 
     fireEvent.change(installments, { target: { value: 3 } });
     expect(installments.value).toBe("3");
