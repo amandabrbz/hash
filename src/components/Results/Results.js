@@ -5,7 +5,6 @@ import Loading from "../Loading/Loading";
 
 const Results = () => {
   const { data, loading } = useContext(Context);
-  console.log(loading);
 
   function formatString(value) {
     let cleanValue = value + "";
