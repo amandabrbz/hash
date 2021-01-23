@@ -36,7 +36,7 @@ Desenvolver uma calculadora de antecipação para que os clientes consigam saber
 
 - [x] Use componentização.
 - [x] Os períodos de recebimento devem ser configuráveis já que a API pode receber uma lista de periódos para realizar os cálculos.
-- [ ] Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
+- [x] Faça testes unitários e/ou de ponta-a-ponta (end-to-end)
 
 Os possíveis cenários devem ser cobertos e terem soluções implementadas. Não foi desenvolvido layout para isso, pois queremos observar como você lidará com eles:
 
@@ -145,12 +145,21 @@ Acredito que aprendi bastante com o teste, nunca tinha mexido com libs externas,
 
 2. Trabalhar com checkboxes achei bem difícil, há uma branch chamada `check-days` onde fiz vários testes para implementar o período por dias, mas tive bastante dificuldade em fazer funcionar e por isso não foi pra prod rs. _Update:_ Depois de muitas tentativas, pesquisas e estudos, eu consegui rs!
 
-3. Por não ter conhecimento em testes, esse foi um ponto que me intimidou desde o inicio, é uma vontade de aprender, mas sei que leva tempo o aprendizado e a implementação da "cultura" de testes.
+3. Validações de formulários sempre vi como uma fase delicada no projeto, pois envolve questões de máscara, limites e até segurança. Tinha como ideia fazer uma validação dinâmica, ou seja ao preencher o `input` ele verifica se ele está correto, entretanto não achei meios para que isso ocorressem e me gerou várias dúvidas. Alguns devs dizem para testar no `onBlur` e no `onChange` entretanto ainda não ficou tão dinâmico por exemplo usando um `jquery-validate`. 
+
+4. Por não ter conhecimento em testes, esse foi um ponto que me intimidou desde o inicio, é uma vontade de aprender, mas sei que leva tempo o aprendizado e a implementação da "cultura" de testes.
 
 ### Pontos de melhorias
 
-- [x] Trabalhar com múltiplos checkboxes!!!
+- [x] Trabalhar com múltiplos checkboxes
 - [ ] Testes
+- [ ] Validações dinâmicas
+
+## Pontos importantes de decisões:
+
+- Ao começar a fazer os testes no formulário, a lib que tinha escolhido para trabalhar com currency não estava passando em um simples ponto de verificação de value, ao fazer muita troca nos códigos, pesquisar métodos de assertions no Jest e em outras libs de testes e mais informações na documentação da própria lib, conclui que a mesma estava com bug. Para então corrigir tive que avaliar opções: procurar mais libs ou fazer um próprio. Acredito que fazer "na unha" iria trazer um diferencial no teste e o aprendizado seria legal, mas tempo que levaria seria muito grande e acabaria não compensando. Portanto recorri a procurar libs, algumas não oferecem o que eu precisava ou estavam com bugs. Optei então pela `currency-format` ele tem algumas configurações a mais e atendia o que precisava, entretanto tive um custo, ela não oferece uma usabilidade que me agradou. Os decimais não são preenchidos automaticamente e para que eles sejam preenchidos você precisa fazer algumas configurações e mesmo assim, o usuário precisa "ativar" o decimal, adicionando a vírgula. Pretendo escrever issues reportando esse problemas aos donos das libs e no que possível ajudar para corrigir.
+
+- Eu sei da existência de bibliotecas para fazer formulários mais rápidos e mais confiáveis e provalvemente com mais perfomances que um feito "na unha", mas gostei de explorar funções nativas do React :smile:  Mas caso tivesse que usar uma biblioteca para isso, acredito que o Hook Form seria legal. 
 
 ## Deploy
 
