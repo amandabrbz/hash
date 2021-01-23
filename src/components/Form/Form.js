@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
-import IntlCurrencyInput from "react-intl-currency-input";
+import CurrencyFormat from "react-currency-format";
 import { POST } from "../../API/api";
-import { currencyConfig } from "../../config/CurrencyConfig";
 import { toastConfig } from "../../config/Toast";
 import { Context } from "../Box/Box";
 import { ToastContainer, toast } from "react-toastify";
@@ -17,7 +16,7 @@ const Form = () => {
   const [error, setError] = useState({});
   const [days, setDays] = useState([]);
   const [forms, setForms] = useState({
-    amount: 0,
+    amount: "",
     installments: "",
     mdr: "",
   });
@@ -103,20 +102,26 @@ const Form = () => {
   return (
     <div className="box__form">
       <h1 className="box__form--title">Simule sua Antecipação</h1>
-      <form className="box__form--form" autoComplete="off" data-testid="calculator">
+      <form
+        className="box__form--form"
+        autoComplete="off"
+        data-testid="calculator"
+      >
         <fieldset>
           <label htmlFor="amount">Informe o valor da venda*</label>
-          <IntlCurrencyInput
-            currency="BRL"
-            config={currencyConfig}
+          <CurrencyFormat
+            prefix={"R$"}
+            thousandSeparator="."
+            decimalSeparator=","
             name="amount"
             id="amount"
-            value={forms.amount}
             onChange={handleChange}
             onBlur={handleOnBlur}
+            decimalScale={2}
+            fixedDecimalScale={true}
             placeholder="R$ 0,00"
             className={error.amount && "error"}
-            inputMode="numeric"
+            inputMode="decimal"
             autoFocus
             required
           />
