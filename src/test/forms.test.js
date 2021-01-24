@@ -25,6 +25,16 @@ describe("testing form component", () => {
   });
 
   describe("testing checkboxes", () => {
+    it("should show the checkboxes options", () => {
+      render(<Form />);
+
+      expect(screen.getByTestId("filter")).not.toHaveClass("active");
+      fireEvent.click(screen.getByTestId("filter"));
+      expect(screen.getByTestId("filter")).toHaveClass("active");
+      fireEvent.click(screen.getByTestId("filter"));
+      expect(screen.getByTestId("filter")).not.toHaveClass("active");
+    });
+
     it("should test if the checkboxes are unchecked", () => {
       render(<Form />);
 
@@ -44,6 +54,20 @@ describe("testing form component", () => {
       expect(checkbox.checked).toEqual(true);
       fireEvent.click(checkbox);
       expect(checkbox.checked).toEqual(false);
+    });
+  });
+
+  describe("to see if all inputs all required", () => {
+    it("should all inputs be required", () => {
+      render(<Form />);
+
+      const amount = screen.getByLabelText(/informe o valor da venda\*/i);
+      const installments = screen.getByLabelText(/em quantas parcelas\*/i);
+      const mdr = screen.getByLabelText(/informe o percentual de mdr\*/i);
+
+      expect(amount).toBeRequired();
+      expect(installments).toBeRequired();
+      expect(mdr).toBeRequired();
     });
   });
 

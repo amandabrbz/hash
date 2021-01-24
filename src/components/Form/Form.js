@@ -169,7 +169,7 @@ const Form = () => {
           {error.mdr && <small className="error">{error.mdr}</small>}
         </fieldset>
         <fieldset>
-          <dt
+          <dt data-testid="filter"
             onClick={(_) => setActive(!active)}
             className={active ? "active" : null}
           >
