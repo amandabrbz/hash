@@ -16,6 +16,7 @@
   - [Pré requisitos](#Pré-requisitos)
   - [Clonando e inicializando](#Clonando-e-inicializando)
     - [Local](#Local)
+  - [Testes](#Testes)
 - [Versionamento](#Versionamento)
   - [Processo de Deploy](#Processo-de-deploy)
 - [Layout](#Layout)
@@ -24,6 +25,7 @@
   - [Aprendizados](#Aprendizados)
   - [Dificuldades](#Dificuldades)
   - [Pontos de melhorias](#Pontos-de-melhorias)
+- [Pontos importantes de decisões](#Pontos-importantes-de-decisões)
 - [Deploy](#Deploy)
 - [Contato](#Contato)
 - [Referências](#Referências)
@@ -97,6 +99,30 @@ http://localhost:3000
 
 :no_entry_sign: Caso a porta já esteja sendo utilizada, a própria aplicação avisa e tenta outra porta.
 
+### Testes
+
+Para os testes foi usado o `testing-library-react` com `jest` que são bibliotecas que já vem com o `create-react-app` e para testes e2e foi usado o `cypress`
+
+Para rodar os testes unitários:
+
+```sh
+npm test
+````
+
+Para rodar os testes unitários com informações de coverage:
+
+```sh
+npm run coverage
+````
+
+Para rodar os testes de e2e:
+
+```sh
+npm run cypress
+```
+
+**Obs:** para o cypress rodar, é necessário estar rodando localmente o projeto.
+
 ## Versionamento
 
 Trabalhei desenvolvendo cada fase do projeto atraves de _branches_ apenas, pois não achei necessário trabalhar com PRs e nem SemVer, sendo que não haveria alguém para avaliar, mas entendo todo o conceito por trás dos métodos.
@@ -155,7 +181,7 @@ Acredito que aprendi bastante com o teste, nunca tinha mexido com libs externas,
 - [ ] Testes
 - [ ] Validações dinâmicas
 
-## Pontos importantes de decisões:
+## Pontos importantes de decisões
 
 - Ao começar a fazer os testes no formulário, a lib que tinha escolhido para trabalhar com currency não estava passando em um simples ponto de verificação de value, ao fazer muita troca nos códigos, pesquisar métodos de assertions no Jest e em outras libs de testes e mais informações na documentação da própria lib, conclui que a mesma estava com bug. Para então corrigir tive que avaliar opções: procurar mais libs ou fazer um próprio. Acredito que fazer "na unha" iria trazer um diferencial no teste e o aprendizado seria legal, mas tempo que levaria seria muito grande e acabaria não compensando. Portanto recorri a procurar libs, algumas não oferecem o que eu precisava ou estavam com bugs. Optei então pela `currency-format` ele tem algumas configurações a mais e atendia o que precisava, entretanto tive um custo, ela não oferece uma usabilidade que me agradou. Os decimais não são preenchidos automaticamente e para que eles sejam preenchidos você precisa fazer algumas configurações e mesmo assim, o usuário precisa "ativar" o decimal, adicionando a vírgula. Pretendo escrever issues reportando esse problemas aos donos das libs e no que possível ajudar para corrigir.
 
