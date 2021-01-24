@@ -24,6 +24,29 @@ describe("testing form component", () => {
     });
   });
 
+  describe("testing checkboxes", () => {
+    it("should test if the checkboxes are unchecked", () => {
+      render(<Form />);
+
+      const checkbox1 = screen.getByTestId("input-checkbox-1");
+      const checkbox15 = screen.getByTestId("input-checkbox-15");
+
+      expect(checkbox1).not.toBeChecked();
+      expect(checkbox15).not.toBeChecked();
+    });
+
+    it("should test if the checkboxes can be checked and unchecked", () => {
+      render(<Form />);
+
+      const checkbox = screen.getByTestId("input-checkbox-1");
+
+      fireEvent.click(checkbox);
+      expect(checkbox.checked).toEqual(true);
+      fireEvent.click(checkbox);
+      expect(checkbox.checked).toEqual(false);
+    });
+  });
+
   describe("testing validations and if the errors messages appears", () => {
     it("should test the amount input inserting nothing", () => {
       render(<Form />);
@@ -91,7 +114,6 @@ describe("testing form component", () => {
       expect(mdr.value).toBe("");
       fireEvent.change(mdr, { target: { value: "hash" } });
       expect(mdr.value).toBe("");
-
     });
   });
 });

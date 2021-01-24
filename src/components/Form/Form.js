@@ -186,6 +186,7 @@ const Form = () => {
                     id={item}
                     value={item}
                     onChange={handleChecked}
+                    data-testid={`input-checkbox-${item}`}
                   />
                 </label>
               ))}
