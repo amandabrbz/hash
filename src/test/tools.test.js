@@ -18,5 +18,11 @@ describe("testing tools methods", () => {
       expect(formatCent).toBe("R$ 0,09");
 
     });
+
+    it("should format string into a currency format more than a thousand", () => {
+      const thousand = formatIntoCurrency(900000);
+
+      expect(thousand).toBe("R$ 9.000,00");
+    });
   });
 });
