@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./Results.css";
 import { Context } from "../Box/Box";
 import Loading from "../Loading/Loading";
-import formatString from "../../helpers/tools";
+import formatIntoCurrency from "../../helpers/tools";
 
 const Results = () => {
   const { data, loading } = useContext(Context);
@@ -19,22 +19,22 @@ const Results = () => {
 
       {data && data[1] ? (
         <p className="box__result--text">
-          Amanhã: <strong>R${formatString(data[1])}</strong>
+          Amanhã: <strong>{formatIntoCurrency(data[1])}</strong>
         </p>
       ) : null}
       {data && data[15] ? (
         <p className="box__result--text">
-          Em 15 dias: <strong>R${formatString(data[15])}</strong>
+          Em 15 dias: <strong>{formatIntoCurrency(data[15])}</strong>
         </p>
       ) : null}
       {data && data[30] ? (
         <p className="box__result--text">
-          Em 30 dias: <strong>R${formatString(data[30])}</strong>
+          Em 30 dias: <strong>{formatIntoCurrency(data[30])}</strong>
         </p>
       ) : null}
       {data && data[90] ? (
         <p className="box__result--text">
-          Em 90 dias: <strong>R${formatString(data[90])}</strong>
+          Em 90 dias: <strong>{formatIntoCurrency(data[90])}</strong>
         </p>
       ) : null}
     </div>
