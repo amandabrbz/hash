@@ -33,7 +33,6 @@ describe("testing form component", () => {
       fireEvent.change(amount, { target: { value: 0 } });
       fireEvent.focusOut(amount);
       expect(screen.getByText(/não pode ser zero reais/i)).toBeInTheDocument();
-
     });
 
     it("should test the amount input inserting more the 1 million", () => {
@@ -43,8 +42,9 @@ describe("testing form component", () => {
 
       fireEvent.change(amount, { target: { value: 1000000.01 } });
       fireEvent.focusOut(amount);
-      expect(screen.getByText(/valor máximo de um milhão/i)).toBeInTheDocument();
-
+      expect(
+        screen.getByText(/valor máximo de um milhão/i)
+      ).toBeInTheDocument();
     });
 
     it("should test the installments input inserting negative number", () => {
@@ -54,8 +54,9 @@ describe("testing form component", () => {
 
       fireEvent.change(installments, { target: { value: -50 } });
       fireEvent.focusOut(installments);
-      expect(screen.getByText(/valor mínimo de 1 parcela/i)).toBeInTheDocument();
-
+      expect(
+        screen.getByText(/valor mínimo de 1 parcela/i)
+      ).toBeInTheDocument();
     });
 
     it("should test the installments input inserting more the 12 quotes", () => {
@@ -65,7 +66,31 @@ describe("testing form component", () => {
 
       fireEvent.change(installments, { target: { value: 20 } });
       fireEvent.focusOut(installments);
-      expect(screen.getByText(/valor máximo de 12 parcelas/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/valor máximo de 12 parcelas/i)
+      ).toBeInTheDocument();
+    });
+  });
+
+  describe("testing to see if input allows letters to be inputted", () => {
+    it("should not allow letters", () => {
+      render(<Form />);
+
+      const amount = screen.getByLabelText(/informe o valor da venda\*/i);
+      const installments = screen.getByLabelText(/em quantas parcelas\*/i);
+      const mdr = screen.getByLabelText(/informe o percentual de mdr\*/i);
+
+      expect(amount.value).toBe("");
+      fireEvent.change(amount, { target: { value: "hash" } });
+      expect(amount.value).toBe("");
+
+      expect(installments.value).toBe("");
+      fireEvent.change(installments, { target: { value: "hash" } });
+      expect(installments.value).toBe("");
+
+      expect(mdr.value).toBe("");
+      fireEvent.change(mdr, { target: { value: "hash" } });
+      expect(mdr.value).toBe("");
 
     });
   });
