@@ -1,4 +1,4 @@
-export const API_URL = 'https://hash-front-test.herokuapp.com/';
+export const API_URL = 'https://frontend-challenge-7bu3nxh76a-uc.a.run.app';
 
 export function POST(body) {
   return {
