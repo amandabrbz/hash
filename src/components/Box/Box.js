@@ -10,12 +10,12 @@ const Box = () => {
   const [loading, setLoading] = useState(false)
   
   return (
-    <div className="box">
+    <section className="box">
       <Context.Provider value={{ data, setData, loading, setLoading  }}>
         <Form />
         <Results />
       </Context.Provider>
-    </div>
+    </section>
   );
 };
 

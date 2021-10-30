@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from "react";
 import CurrencyFormat from "react-currency-format";
 import { POST } from "../../API/api";
@@ -29,7 +30,6 @@ const Form = () => {
     ) {
       handlePOST(forms);
     }
-    // eslint-disable-next-line
   }, [forms]);
 
   useEffect(() => {
@@ -41,7 +41,6 @@ const Form = () => {
         setForms(withoutDays);
       }
     }
-    // eslint-disable-next-line
   }, [days]);
 
   function handleChecked({ target }) {
@@ -68,7 +67,7 @@ const Form = () => {
     setForms({ ...forms, [name]: value });
   }
 
-  function handleOnBlur() {
+  function handleOnBlur() { //está validando o form e nao o target 
     setError(validate(forms));
   }
 
@@ -100,7 +99,7 @@ const Form = () => {
   }
 
   return (
-    <div className="box__form">
+    <article className="box__form">
       <h1 className="box__form--title">Simule sua Antecipação</h1>
       <form
         className="box__form--form"
@@ -195,7 +194,7 @@ const Form = () => {
         </fieldset>
       </form>
       <ToastContainer />
-    </div>
+    </article>
   );
 };
 

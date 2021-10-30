@@ -3,9 +3,9 @@ import Box from './components/Box/Box'
 
 function App() {
   return (
-    <div className="App">
-    <Box/>
-    </div>
+    <main className="App">
+      <Box/>
+    </main>
   );
 }
 
