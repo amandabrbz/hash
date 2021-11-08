@@ -1,18 +1,18 @@
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
-import formatIntoCurrency from "../helpers/tools";
+import formatCurrencyValue from "../helpers/formatCurrencyValue";
 
 describe("testing tools methods", () => {
-  describe("testing formartString function", () => {
+  describe("testing formatCurrencyValue function", () => {
     it("should format string into a currency format", () => {
-      const formatValue = formatIntoCurrency(1000);
+      const formatValue = formatCurrencyValue(1000);
 
       expect(formatValue).toBe("R$ 10,00");
     });
 
     it("should format string into a currency format decimal", () => {
-      const formatDecimal = formatIntoCurrency(90);
-      const formatCent = formatIntoCurrency(9);
+      const formatDecimal = formatCurrencyValue(90);
+      const formatCent = formatCurrencyValue(9);
 
       expect(formatDecimal).toBe("R$ 0,90");
       expect(formatCent).toBe("R$ 0,09");
@@ -20,7 +20,7 @@ describe("testing tools methods", () => {
     });
 
     it("should format string into a currency format more than a thousand", () => {
-      const thousand = formatIntoCurrency(900000);
+      const thousand = formatCurrencyValue(900000);
 
       expect(thousand).toBe("R$ 9.000,00");
     });

@@ -10,7 +10,7 @@ describe("testing box component", () => {
       render(<Results />);
 
       expect(screen.getByText(/você receberá:/i)).toBeInTheDocument();
-      expect(screen.queryByText(/digite os campos obrigatórios/i)).toBeNull();
+      expect(screen.queryByText(/digite os campos obrigatórios/i)).toBeInTheDocument();
       expect(screen.queryByText(/amanhã:/i)).toBeNull();
       expect(screen.queryByText(/Em 15 dias:/i)).toBeNull();
     });

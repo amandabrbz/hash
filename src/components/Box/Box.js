@@ -6,7 +6,7 @@ import Results from "../Results/Results";
 export const Context = createContext({ data: null, setData: () => {}, loading: false, setLoading: () => {} });
 
 const Box = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState('');
   const [loading, setLoading] = useState(false)
   
   return (
